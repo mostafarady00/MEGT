@@ -131,7 +131,7 @@ class AuthController extends Controller
         return response()->json(['message' => 'OTP sent to your email'], 200);
     }
 
-    public function verifyOtp(Request $request)
+  public function verifyOtp(Request $request)
 {
     $request->validate([
         'email' => 'required|email',
@@ -148,14 +148,9 @@ class AuthController extends Controller
         return response()->json(['message' => 'Invalid OTP or OTP expired'], 400);
     }
 
-    // Invalidate the OTP after successful verification
-    $user->update([
-        'otp' => null,
-        'otp_expires_at' => null,
-    ]);
-
     return response()->json(['message' => 'OTP verified successfully'], 200);
 }
+
 
 
 //resetPassword
