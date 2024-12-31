@@ -17,24 +17,15 @@ class NumberspeakController extends Controller
         return response()->json(Numberspeak::findOrFail($id));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'percentage' => 'required|string',
-        ]);
-
-        return response()->json(Numberspeak::create($request->only('percentage')), 201);
-    }
-
     public function update(Request $request, $id)
     {
         $number = Numberspeak::findOrFail($id);
 
         $request->validate([
-            'percentage' => 'required|string',
+            'percentage' => 'required|integer',
         ]);
 
-        $number->update($request->only('percentage'));
+        $number->update(['percentage' => $request->percentage]);
 
         return response()->json($number);
     }
