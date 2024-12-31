@@ -60,34 +60,6 @@ Route::prefix('Bestoffer')->group(function () {
     Route::middleware(['auth:sanctum', 'admin'])->delete('/{id}', [BestofferController::class, 'destroy']);
 });
 
-// //terms
-// Route::apiResource('terms', TermController::class);
-// Route::post('terms/{id}', [TermController::class, 'update']);
-
-// //faqs
-// Route::apiResource('faqs', FaqController::class);
-// Route::post('faqs/{id}', [FaqController::class, 'update']);
-
-// //BlogController
-// Route::apiResource('blogs', BlogController::class);
-// Route::post('blogs/{id}', [BlogController::class, 'update']);
-
-// //internationaltrads
-// Route::apiResource('internationaltrads', InternationaltradController::class);
-// Route::post('internationaltrads/{id}', [InternationaltradController::class, 'update']);
-
-// //ourteams
-// Route::apiResource('ourteams', OurteamController::class);
-// Route::post('ourteams/{id}', [OurteamController::class, 'update']);
-
-// //NumberspeakController
-// Route::apiResource('numberspeaks', NumberspeakController::class);
-// Route::post('numberspeaks/{id}', [NumberspeakController::class, 'update']);
-
-
-// //international faqs
-// Route::apiResource('internationalfaq', InternationalfaqController::class);
-// Route::post('internationalfaq/{id}', [InternationalfaqController::class, 'update']);
 
 // Terms Routes
 Route::prefix('terms')->group(function () {
@@ -137,7 +109,7 @@ Route::prefix('ourteams')->group(function () {
 // Number Speaks Routes
 Route::prefix('numberspeaks')->group(function () {
     Route::get('/', [NumberspeakController::class, 'index']);
-    Route::middleware(['auth:sanctum', 'admin'])->post('/', [NumberspeakController::class, 'store']);
+    // Route::middleware(['auth:sanctum', 'admin'])->post('/', [NumberspeakController::class, 'store']);
     Route::get('/{id}', [NumberspeakController::class, 'show']);
     Route::middleware(['auth:sanctum', 'admin'])->post('/{id}', [NumberspeakController::class, 'update']);
     Route::middleware(['auth:sanctum', 'admin'])->delete('/{id}', [NumberspeakController::class, 'destroy']);
