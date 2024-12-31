@@ -33,6 +33,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('/register', [AuthController::class, 'register']);
+Route::middleware(['auth:sanctum', 'admin'])->get('/allusers', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/loginadmin', [AuthController::class, 'loginadmin']);
 Route::post('/forget-password', [AuthController::class, 'forgetPassword']);
