@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('numberspeaks', function (Blueprint $table) {
             $table->id();
             $table->integer('percentage');
+            $table->string('title_en');
+            $table->string('title_ar');
             $table->timestamps();
         });
     }
