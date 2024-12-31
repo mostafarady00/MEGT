@@ -10,7 +10,9 @@ class Numberspeak extends Model
     use HasFactory;
 
     protected $fillable = [
-        'percentage',
+     'percentage',
+    'title_en',
+    'title_ar',
     ];
 
     public function getPercentageAttribute($value)
