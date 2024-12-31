@@ -12,6 +12,23 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+        //all users
+public function index()
+{
+    $users = User::all()->map(function ($user) {
+        return [
+            'full_name' => $user->first_name . ' ' . $user->last_name,
+            'email' => $user->email,
+            'created_at' => $user->created_at->format('Y-m-d H:i:s'), // Format as needed
+        ];
+    });
+
+    return response()->json([
+        'message' => 'Users retrieved successfully',
+        'users' => $users,
+    ]);
+}
+
     // Register
     public function register(Request $request)
     {
